@@ -1,0 +1,123 @@
+body {
+  background-color: deepskyblue;
+}
+
+#root-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-card {
+  background-color: white;
+  width: 50vw;
+  height: 75vh;
+  border-radius: 2vh;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  padding: 1vh;
+  text-align: center;
+}
+
+#song-album {
+  height: 35vh;
+  width: 35vh;
+  border-radius: 1vh;
+}
+
+#modal-container {
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal-container.active {
+  visibility: visible;
+  text-align: center;
+}
+
+#modal-body {
+  visibility: hidden;
+  width: 40vw;
+  height: 40vh;
+  background-color: white;
+  padding: 2vh;
+  border-radius: 1vmax;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+}
+
+#modal-text {
+  margin-bottom: 2vh;
+}
+
+#modal-text > p {
+  text-align: center;
+}
+
+#modal-body.active {
+  visibility: visible;
+}
+
+
+button {
+  border: none;
+  background-color: deepskyblue;
+  font-family: Nunito;
+  font-size: 2em;
+  padding: 1vh;
+  border-radius: 1vmax;
+  color: white;
+  z-index: 2;
+}
+
+input {
+  text-align: center;
+  font-size: 1.2em;
+  border-radius: 1vmax;
+  border: 2px solid black;
+  outline: none;
+  color: deepskyblue;
+  width: 100%;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: deepskyblue;
+}
+
+.blue {
+  background-color: deepskyblue;
+}
+
+.red {
+  background-color: red;
+}
+
+.nunito {
+  font-family: Nunito;
+}
