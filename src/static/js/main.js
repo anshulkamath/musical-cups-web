@@ -2,6 +2,7 @@ const endpoint = 'http://anshulkamath.local:3000/spotify'
 
 const extractURI = (playlistURL) => playlistURL.substring(playlistURL.lastIndexOf('/') + 1)
 const defaultPlaylist = 'https://open.spotify.com/playlist/55kGYQPNVPEkK9NUtQbbUW'
+const playlistItems = []
 let playlistURL = defaultPlaylist
 let songId = ''
 let previewUrl = ''
@@ -12,8 +13,7 @@ let timeout = null
 const MIN_LENGTH = 5
 const MAX_LENGTH = 30 /* 30 is the maximum length possible */
 
-
-const getSong = async (num_retries = 5) => {
+const getPlaylist = async () => {
   const requestParams = {
     type: 'GET',
     error: (xhr, textStatus, error) => {
@@ -28,18 +28,22 @@ const getSong = async (num_retries = 5) => {
   }
 
   const response = await $.ajax(endpoint, requestParams)
+  playlistItems.push(...response.playlistItems)
+  console.log(playlistItems)
+}
 
-  songId = response.id
-  previewUrl = response.preview_url
+const getSong = async (num_retries = 5) => {
+  const song = _.sample(playlistItems)
+  songId = song.id
+  previewUrl = song.preview_url
 
   // if we have already seen the song, then regenerate another song
   if (seenIds.has(songId) && num_retries > 0) {
-    await getSong(num_retries - 1)
-    return
+    return await getSong(num_retries - 1)
   }
 
-  $('#song-title').text(response.name)
-  $('#song-album').attr('src', response.album)
+  $('#song-title').text(song.name)
+  $('#song-album').attr('src', song.album)
 
   seenIds.add(songId)
 
@@ -56,6 +60,8 @@ const prepareGame = async () => {
   navigator.mediaSession.setActionHandler('nexttrack', () => {})
 
   $('#playlist-input').attr('placeholder', defaultPlaylist)
+
+  await getPlaylist()
 }
 
 const closeModal = async () => {

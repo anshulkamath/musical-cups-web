@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
   <title>Musical Cups</title>
   <meta name="description" content="Musical Cups">
@@ -17,19 +18,20 @@
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 </head>
+
 <body>
   <div id="modal-container">
     <div id="modal-body">
       <h2 id="modal-header" class="nunito">Welcome to Musical Cups!</h1>
-      <div id="modal-text" class="nunito">
-        <p>
-          Please enter the (public) playlist URL that you would like to use for this game!
-          <br>
-          If you do not want to change the playlist, just press "Ready!"
-        </p>
-        <input id="playlist-input" type="text" placeholder="https://open.spotify.com/playlist/55kGYQPNVPEkK9NUtQbbUW">
-      </div>
-      <button id="modal-close" class="nunito">Ready!</button>
+        <div id="modal-text" class="nunito">
+          <p>
+            Please enter the (public) playlist URL that you would like to use for this game!
+            <br>
+            If you do not want to change the playlist, just press "Ready!"
+          </p>
+          <input id="playlist-input" type="text" placeholder="https://open.spotify.com/playlist/55kGYQPNVPEkK9NUtQbbUW">
+        </div>
+        <button id="modal-close" class="nunito">Ready!</button>
     </div>
   </div>
   <div id="root-container" class="blue">
@@ -46,6 +48,11 @@
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+  <!-- Lodash -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+    integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- Script Files -->
   <script src="../js/main.js"></script>
